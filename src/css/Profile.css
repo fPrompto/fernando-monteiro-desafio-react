@@ -72,3 +72,17 @@
   margin-left: 30px;
   margin-bottom: 86px;
 }
+
+.repo-counter {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+
+  background: rgb(221, 221, 221);
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid rgb(221, 221, 221);
+}
