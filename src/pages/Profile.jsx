@@ -35,36 +35,20 @@ function Profile() {
   };
 
   const getLangIcon = (lang) => {
-    if (lang === 'HTML') {
-      return <img
-      src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
-      alt={`HTML icon.`}
-      className='repo-language-icon'
-      />;
-    }
-
-    if (lang === 'Vue') {
-      return <img
-        src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg'
-        alt={`HTML icon.`}
+    const imgTag = (langName) => (<img
+        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${langName}/${langName}-original.svg`}
+        alt={`${lang} icon.`}
         className='repo-language-icon'
-      />;
-    }
+      />);
 
-    if (!lang) {
-      return <img
-        src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg'
-        alt='Vs Code icon.'
-        className='repo-language-icon'
-      />;
-    }
-    const langLow = lang.toLowerCase();
-
-    return <img
-      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${langLow}/${langLow}-original.svg`}
-      alt={`${lang} icon.`}
+    if (lang === 'HTML') return imgTag('html5');
+    if (lang === 'Vue') return imgTag('vuejs');
+    if (!lang) return <img
+      src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg' alt='Visual Studio icon.'
       className='repo-language-icon'
     />;
+    const langLow = lang.toLowerCase();
+    return imgTag(langLow);
   };
 
   useEffect(() => {
