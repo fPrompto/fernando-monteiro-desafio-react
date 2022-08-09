@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 import Loading from '../components/Loading';
 
@@ -39,39 +40,55 @@ function Profile() {
 
   return isLoading ? <Loading /> : (
     <div>
-      <div className='profile-div'>
-        <img
-          src={data.username.avatar_url}
-          alt={`Imagem de perfil de ${data.username.name}`}
-          className='avatar-img'
-        />
-        <h2>{data.username.name}</h2>
-        <p>{data.username.bio}</p>
-        <p>{`@${data.username.login}`}</p>
-        {/* <p>{data.username.location}</p> */}
-        {/* <p>{data.username.company}</p> */}
-        {/* <p>{data.username.blog}</p> */}
-        {/* <p>{data.username.public_repos}</p> */}
-        {/* <p>{data.username.public_gists}</p> */}
-        <p>{`${data.username.followers} followers`}</p>
-        <p>{`${data.username.following} following`}</p>
-        <p>{data.username.email}</p>
-        {/* <p>{data.username.created_at}</p> */}
-      </div>
-      <div className='repos-div'>
-        {data.repos.map((r, i) => {
-          const { day, monthShort } = getDate(r.updated_at);
-
-          return (
-            <div key={i}>
-              <h5>{r.name}</h5>
-              <span>{r.description}</span>
-              <span>{r.language}</span>
-              {/* <span>{`${r.updated_at}`}</span> */}
-              <span>{`     Updated on ${day} ${monthShort}`}</span>
+      <div className='header'><h6>Repositories</h6></div>
+      <hr className='featurette-divider feat-divider header-divider' />
+      <div className='main-profile'>
+        <div className='left-div'>
+          <div className='profile-div'>
+            <img
+              src={data.username.avatar_url}
+              alt={`Imagem de perfil de ${data.username.name}`}
+              className='avatar-img'
+            />
+            <div className='profile-info'>
+              <h2>{data.username.name}</h2>
+              <span>{data.username.bio}</span>
+              <Button
+                variant='dark'
+                className='follow-btn'
+              >
+                Follow
+              </Button>
+              <span className='profile-login'>{`@${data.username.login}`}</span>
+              {/* <p>{data.username.location}</p> */}
+              {/* <p>{data.username.company}</p> */}
+              {/* <p>{data.username.blog}</p> */}
+              {/* <p>{data.username.public_repos}</p> */}
+              {/* <p>{data.username.public_gists}</p> */}
+              <span>{`${data.username.followers} followers `}</span>
+              <span>{`${data.username.following} following`}</span>
+              <p>{data.username.email}</p>
+              {/* <p>{data.username.created_at}</p> */}
+              <hr className='featurette-divider feat-divider' />
             </div>
-          );
-        })}
+          </div>
+        </div>
+        <div className='repos-div'>
+          {data.repos.map((r, i) => {
+            const { day, monthShort } = getDate(r.updated_at);
+
+            return (
+              <div key={i} className='repo-card'>
+                <h5>{r.name}</h5>
+                <span>{r.description}</span>
+                <span>{r.language}</span>
+                {/* <span>{`${r.updated_at}`}</span> */}
+                <span>{` Updated on ${day} ${monthShort}`}</span>
+                <hr className='featurette-divider feat-divider repo-divider' />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

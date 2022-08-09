@@ -1,18 +1,68 @@
+.main-profile {
+  margin: auto;
+  width: 950px;
+}
+
 .avatar-img {
   width: 300px;
   height: 300px;
   border-radius: 50%;
   margin-bottom: 10px;
+  position: absolute;
+}
+
+.left-div {
+  display: inline-block;
+  width: 350px;
+  vertical-align: top;
 }
 
 .profile-div {
-  display: inline-block;
-  margin:20px;
-  width: 40%;
+  float: right;
+  margin-right: 60px;
+  margin-top: -50px;
 }
 
 .repos-div {
   display: inline-block;
-  margin:20px;
-  width: 40%;
+  width: 600px;
+  padding-top: 60px;
+}
+
+.feat-divider {
+  width: 100%;
+  color: grey;
+}
+
+.header h6 {
+  margin-left: 47%;
+  margin-top: 60px;
+}
+
+.header-divider {
+  margin-top: 0px;
+}
+
+.profile-info {
+  margin-top: 317px;
+  width: 300px;
+}
+
+.follow-btn {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.profile-login {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.repo-card {
+  padding-top: 9px;
+}
+
+.repo-divider {
+  margin-top: 27px;
 }
