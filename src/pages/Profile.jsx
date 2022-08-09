@@ -20,7 +20,7 @@ function Profile() {
     setData({ username, repos });
 
     setIsLoading(false);
-    console.log('data =>', data);
+    await console.log('data =>', data);
   };
 
   const getDate = (date) => {
@@ -51,7 +51,7 @@ function Profile() {
             />
             <div className='profile-info'>
               <h2>{data.username.name}</h2>
-              <span>{data.username.bio}</span>
+              <span className='grey-font'>{data.username.bio}</span>
 
               <Button
                 variant='dark'
@@ -66,8 +66,10 @@ function Profile() {
               {/* <p>{data.username.blog}</p> */}
               {/* <p>{data.username.public_repos}</p> */}
               {/* <p>{data.username.public_gists}</p> */}
-              <span>{`${data.username.followers} followers `}</span>
-              <span>{`${data.username.following} following`}</span>
+              <span className='followers'>{data.username.followers}</span>
+              <span className='grey-font'> followers </span>
+              <span className='followers'>{data.username.following}</span>
+              <span className='grey-font'> following</span>
               <p>{data.username.email}</p>
               {/* <p>{data.username.created_at}</p> */}
               <hr className='featurette-divider feat-divider' />
@@ -97,10 +99,10 @@ function Profile() {
             return (
               <div key={i} className='repo-card'>
                 <h5>{r.name}</h5>
-                <span>{r.description}</span>
-                <span>{r.language}</span>
+                <p className='repo-description grey-font'>{r.description}</p>
+                <span className='grey-font'>{r.language}</span>
                 {/* <span>{`${r.updated_at}`}</span> */}
-                <span>{` Updated on ${day} ${monthShort}`}</span>
+                <span className='grey-font'>{` Updated on ${day} ${monthShort}`}</span>
                 <hr className='featurette-divider feat-divider repo-divider' />
               </div>
             );
