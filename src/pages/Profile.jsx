@@ -52,9 +52,11 @@ function Profile() {
             <div className='profile-info'>
               <h2>{data.username.name}</h2>
               <span>{data.username.bio}</span>
+
               <Button
                 variant='dark'
                 className='follow-btn'
+                href={data.username.html_url}
               >
                 Follow
               </Button>
@@ -87,7 +89,7 @@ function Profile() {
               />
             </svg>
             {` Repositories `}
-            <div className='repo-counter'>{data.repos.length}</div>
+            <div className='repo-counter'>{data.username.public_repos}</div>
           </h6>
           {data.repos.map((r, i) => {
             const { day, monthShort } = getDate(r.updated_at);
