@@ -16,10 +16,21 @@ function Profile() {
     const username = await fetchUser(user);
     const repos = await fetchRepos(user);
 
-    setData({username, repos});
+    setData({ username, repos });
 
     setIsLoading(false);
     console.log('data =>', data);
+  };
+
+  const getDate = (date) => {
+    const d = new Date(date);
+    // const dateMonth = d.toLocaleString('pt-BR', { month: 'long' });
+    const day = d.getDate();
+    const monthShort = d.toLocaleString('en-US', { month: 'short' });
+    const monthLong = d.toLocaleString('en-US', { month: 'long' });
+
+
+    return { day, monthLong, monthShort };
   };
 
   useEffect(() => {
@@ -48,9 +59,19 @@ function Profile() {
         {/* <p>{data.username.created_at}</p> */}
       </div>
       <div className='repos-div'>
-        {data.repos.map((r, i) => (
-          <div key={i}>{r.name}</div>
-        ))}
+        {data.repos.map((r, i) => {
+          const { day, monthShort } = getDate(r.updated_at);
+
+          return (
+            <div key={i}>
+              <h5>{r.name}</h5>
+              <span>{r.description}</span>
+              <span>{r.language}</span>
+              {/* <span>{`${r.updated_at}`}</span> */}
+              <span>{`     Updated on ${day} ${monthShort}`}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
