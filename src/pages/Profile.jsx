@@ -26,9 +26,22 @@ function Profile() {
 
   return isLoading ? <Loading /> : (
     <div>
-      <h1>User</h1>
       <div>
-        <span>Repos</span>
+        <img src={data.username.avatar_url} alt={`Imagem de`} />
+        <h2>{data.username.name}</h2>
+        <p>{data.username.bio}</p>
+        <p>{`@${data.username.login}`}</p>
+        {/* <p>{data.username.location}</p> */}
+        {/* <p>{data.username.company}</p> */}
+        {/* <p>{data.username.blog}</p> */}
+        {/* <p>{data.username.public_repos}</p> */}
+        {/* <p>{data.username.public_gists}</p> */}
+        <p>{`${data.username.followers} followers`}</p>
+        <p>{`${data.username.following} following`}</p>
+        <p>{data.username.email}</p>
+        {/* <p>{data.username.created_at}</p> */}
+      </div>
+      <div>
         {data.repos.map((r, i) => (
           <div key={i}>{r.name}</div>
         ))}
