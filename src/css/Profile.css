@@ -1,0 +1,18 @@
+.avatar-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-div {
+  display: inline-block;
+  margin:20px;
+  width: 40%;
+}
+
+.repos-div {
+  display: inline-block;
+  margin:20px;
+  width: 40%;
+}

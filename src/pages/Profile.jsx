@@ -5,6 +5,8 @@ import Loading from '../components/Loading';
 
 import { fetchUser, fetchRepos } from '../utils/fetch';
 
+import '../css/Profile.css';
+
 function Profile() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
@@ -26,8 +28,12 @@ function Profile() {
 
   return isLoading ? <Loading /> : (
     <div>
-      <div>
-        <img src={data.username.avatar_url} alt={`Imagem de`} />
+      <div className='profile-div'>
+        <img
+          src={data.username.avatar_url}
+          alt={`Imagem de perfil de ${data.username.name}`}
+          className='avatar-img'
+        />
         <h2>{data.username.name}</h2>
         <p>{data.username.bio}</p>
         <p>{`@${data.username.login}`}</p>
@@ -41,7 +47,7 @@ function Profile() {
         <p>{data.username.email}</p>
         {/* <p>{data.username.created_at}</p> */}
       </div>
-      <div>
+      <div className='repos-div'>
         {data.repos.map((r, i) => (
           <div key={i}>{r.name}</div>
         ))}
