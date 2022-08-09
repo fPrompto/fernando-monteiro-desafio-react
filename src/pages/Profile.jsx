@@ -40,7 +40,6 @@ function Profile() {
 
   return isLoading ? <Loading /> : (
     <div>
-      <div className='header'><h6>Repositories</h6></div>
       <hr className='featurette-divider feat-divider header-divider' />
       <div className='main-profile'>
         <div className='left-div'>
@@ -74,6 +73,7 @@ function Profile() {
           </div>
         </div>
         <div className='repos-div'>
+          <h6 className='repo-header'>Repositories</h6>
           {data.repos.map((r, i) => {
             const { day, monthShort } = getDate(r.updated_at);
 
