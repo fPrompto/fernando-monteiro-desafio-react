@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+
+import { fetchUser } from '../utils/fetch';
 
 function Home() {
   const [searchBar, setSearchBar] = useState('');
 
-  const fetch = async () => {
-    try {
-      const response = await axios({
-        method: 'GET',
-        url: `https://api.github.com/users/${searchBar}`,
-      });
-  
-      return response.data;
-    } catch (_e) {
-      return {};
-    }
-  };
-
   const checkUser = async () => {  
-    const user = await fetch();
+    const user = await fetchUser(searchBar);
 
     if (user.login) {
       console.log('username OK!')
