@@ -13,15 +13,15 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useParams();
 
-  const fetchData = async () => {
-    const username = await fetchUser(user);
-    const repos = await fetchRepos(user);
+  // const fetchData = async () => {
+  //   const username = await fetchUser(user);
+  //   const repos = await fetchRepos(user);
 
-    setData({ username, repos });
+  //   setData({ username, repos });
 
-    setIsLoading(false);
-    await console.log('data =>', data);
-  };
+  //   setIsLoading(false);
+  //   await console.log('data =>', data);
+  // };
 
   const getDate = (date) => {
     const d = new Date(date);
@@ -34,7 +34,49 @@ function Profile() {
     return { day, monthLong, monthShort };
   };
 
+  const getLangIcon = (lang) => {
+    if (lang === 'HTML') {
+      return <img
+      src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'
+      alt={`HTML icon.`}
+      className='repo-language-icon'
+      />;
+    }
+
+    if (lang === 'Vue') {
+      return <img
+        src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg'
+        alt={`HTML icon.`}
+        className='repo-language-icon'
+      />;
+    }
+
+    if (!lang) {
+      return <img
+        src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg'
+        alt='Vs Code icon.'
+        className='repo-language-icon'
+      />;
+    }
+    const langLow = lang.toLowerCase();
+
+    return <img
+      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${langLow}/${langLow}-original.svg`}
+      alt={`${lang} icon.`}
+      className='repo-language-icon'
+    />;
+  };
+
   useEffect(() => {
+    const fetchData = async () => {
+      const username = await fetchUser(user);
+      const repos = await fetchRepos(user);
+
+      setData({ username, repos });
+
+      setIsLoading(false);
+      await console.log('data =>', data);
+    };
     fetchData();
   }, []);
 
@@ -95,12 +137,19 @@ function Profile() {
           </h6>
           {data.repos.map((r, i) => {
             const { day, monthShort } = getDate(r.updated_at);
+            const icon = getLangIcon(r.language);
 
             return (
               <div key={i} className='repo-card'>
                 <h5>{r.name}</h5>
                 <p className='repo-description grey-font'>{r.description}</p>
-                <span className='grey-font'>{r.language}</span>
+                {icon}
+                {
+                  r.language ?
+                    <span className='grey-font'>{` ${r.language}`}</span> :
+                    <span className='grey-font'>No language</span>
+                }
+                <span className='grey-font'> • </span>
                 {/* <span>{`${r.updated_at}`}</span> */}
                 <span className='grey-font'>{` Updated on ${day} ${monthShort}`}</span>
                 <hr className='featurette-divider feat-divider repo-divider' />
