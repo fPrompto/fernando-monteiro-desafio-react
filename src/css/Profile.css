@@ -110,13 +110,13 @@
 @media (max-width: 1000px) {
   .main-profile {
     margin: auto;
-    width: 572px;
+    width: 502px;
   }
 
   .avatar-img {
     display: inline-block;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin-top: -270px;
     margin-bottom: 0px;
@@ -125,7 +125,7 @@
 
   .left-div {
     display: block;
-    width: 300px;
+    width: 250px;
     margin-bottom: 0px;
   }
 
@@ -133,14 +133,14 @@
     float: none;
     margin-right: 0px;
     margin-top: -50px;
-    width: 572px;
+    width: 502px;
   }
 
   .profile-info {
     display: inline-block;
     margin-top: 45px;
     margin-left: 22px;
-    width: 300px;
+    width: 280px;
   }
 
   .repo-header {
@@ -149,4 +149,10 @@
     margin-bottom: 27px;
     font-size: 27px;
   }
+
+    .repos-div {
+      display: block;
+      width: 502px;
+      padding-top: 60px;
+    }
 }
