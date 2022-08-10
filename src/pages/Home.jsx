@@ -3,10 +3,12 @@ import Button from 'react-bootstrap/Button';
 
 import { fetchUser } from '../utils/fetch';
 
+import '../css/Home.css';
+
 function Home() {
   const [searchBar, setSearchBar] = useState('');
 
-  const checkUser = async () => {  
+  const checkUser = async () => {
     const user = await fetchUser(searchBar);
 
     if (user.login) {
@@ -17,27 +19,32 @@ function Home() {
     return alert('Usuário não encontrado no github. Verifique se você digitou o nome corretamente');
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     console.log('searchBar =>', searchBar);
   });
 
   return (
-    <div>
-      <h1>Home</h1>
-      <input
-        type='text'
-        name=''
-        id=''
-        className='form-control'
-        onChange={(e) => setSearchBar(e.target.value)}
-        value={searchBar}
-      />
+    <div className='main-home'>
+      <div className='main-div'>
+      <h2 className='home-title'>Buscar Repositório no github</h2>
+      <div className='div-search'>
+        <input
+          type='text'
+          name=''
+          id=''
+          className='form-control input-search'
+          onChange={(e) => setSearchBar(e.target.value)}
+          value={searchBar}
+        />
+      </div>
       <Button
         variant='dark'
         onClick={checkUser}
-      >
-        Buscar
-      </Button>
+        className='btn-search'
+        >
+          &#x1F50E; Buscar
+        </Button>
+      </div>
     </div>
   );
 }
