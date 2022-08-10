@@ -11,6 +11,10 @@ function Home() {
   const checkUser = async () => {
     const user = await fetchUser(searchBar);
 
+    if (!searchBar) {
+      return alert('informe um nome de usuário válido do github');
+    }
+
     if (user.login) {
       console.log('username OK!')
       return window.location.href = `/user/${searchBar}`;
