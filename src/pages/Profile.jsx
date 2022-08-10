@@ -13,15 +13,15 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useParams();
 
-  // const fetchData = async () => {
-  //   const username = await fetchUser(user);
-  //   const repos = await fetchRepos(user);
+  const fetchData = async () => {
+    const username = await fetchUser(user);
+    const repos = await fetchRepos(user);
 
-  //   setData({ username, repos });
+    setData({ username, repos });
 
-  //   setIsLoading(false);
-  //   await console.log('data =>', data);
-  // };
+    setIsLoading(false);
+    await console.log('data =>', data);
+  };
 
   const getDate = (date) => {
     const d = new Date(date);
@@ -52,15 +52,6 @@ function Profile() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const username = await fetchUser(user);
-      const repos = await fetchRepos(user);
-
-      setData({ username, repos });
-
-      setIsLoading(false);
-      await console.log('data =>', data);
-    };
     fetchData();
   }, []);
 

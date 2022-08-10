@@ -34,11 +34,6 @@
   color: grey;
 }
 
-/* .header h6 {
-  margin-left: 42%;
-  margin-top: 60px;
-} */
-
 .header-divider {
   margin-top: 72px;
 }
@@ -105,4 +100,48 @@
   height: 16px;
   margin-right: 5px;
   margin-bottom: 2px;
+}
+
+@media (max-width: 1000px) {
+  .main-profile {
+    margin: auto;
+    width: 622px;
+  }
+
+  .avatar-img {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: -275px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+
+  .left-div {
+    display: block;
+    width: 350px;
+    margin-bottom: 0px;
+  }
+
+  .profile-div {
+    float: none;
+    margin-right: 0px;
+    margin-top: -50px;
+    width: 622px;
+  }
+
+  .profile-info {
+    display: inline-block;
+    margin-top: 70px;
+    margin-left: 22px;
+    width: 300px;
+  }
+
+  .repo-header {
+    margin-top: -20px;
+    margin-left: -5px;
+    margin-bottom: 27px;
+    font-size: 27px;
+  }
 }
