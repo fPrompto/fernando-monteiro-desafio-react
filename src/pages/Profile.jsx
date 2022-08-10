@@ -116,7 +116,7 @@ function Profile() {
 
             return (
               <div key={i} className='repo-card'>
-                <h5>{r.name}</h5>
+                <h5 className='repo-name'><a href={r.clone_url}>{r.name}</a></h5>
                 <p className='repo-description grey-font'>{r.description}</p>
                 {icon}
                 {

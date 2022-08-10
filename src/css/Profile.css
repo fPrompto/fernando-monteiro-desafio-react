@@ -102,6 +102,11 @@
   margin-bottom: 2px;
 }
 
+.repo-name a {
+  text-decoration: none;
+  color: rgb(77, 77, 224);
+}
+
 @media (max-width: 1000px) {
   .main-profile {
     margin: auto;
