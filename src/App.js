@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import routes from './routes';
 
+import NotFound from './pages/NotFound';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/App.css';
 
@@ -13,11 +15,12 @@ function App() {
         {routes.map((route, i) => (
           <Route
             key={i}
-            // exact={route.exact}
+            exact
             path={route.path}
             element={<route.element />}
           />
         ))}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
