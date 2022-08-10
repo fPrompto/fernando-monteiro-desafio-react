@@ -1,8 +1,13 @@
 import React from 'react';
 
+import '../css/NotFound.css';
+
 function NotFound() {
   return (
-    <span>Not Found</span>
+    <div className='not-found'>
+      <h1>404</h1>
+      <h1>Not Found</h1>
+    </div>
   );
 }
 
