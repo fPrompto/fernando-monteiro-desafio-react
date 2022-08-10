@@ -9,7 +9,10 @@ import { fetchUser, fetchRepos } from '../utils/fetch';
 import '../css/Profile.css';
 
 function Profile() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    repos: {},
+    username: {},
+  });
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useParams();
 
@@ -17,10 +20,12 @@ function Profile() {
     const username = await fetchUser(user);
     const repos = await fetchRepos(user);
 
-    setData({ username, repos });
-
-    setIsLoading(false);
-    await console.log('data =>', data);
+    if (username.login) {
+      await setData({ username, repos });
+      return setIsLoading(false);
+    }
+    console.log('data =>', data);
+    return window.location.href = '/not-found';
   };
 
   const getDate = (date) => {
@@ -36,10 +41,10 @@ function Profile() {
 
   const getLangIcon = (lang) => {
     const imgTag = (langName) => (<img
-        src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${langName}/${langName}-original.svg`}
-        alt={`${lang} icon.`}
-        className='repo-language-icon'
-      />);
+      src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${langName}/${langName}-original.svg`}
+      alt={`${lang} icon.`}
+      className='repo-language-icon'
+    />);
 
     if (lang === 'HTML') return imgTag('html5');
     if (lang === 'Vue') return imgTag('vuejs');
