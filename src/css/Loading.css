@@ -1,0 +1,9 @@
+.loading {
+  display: block;
+  margin: auto;
+  margin-top: 40vh;
+  /* position: absolute; */
+  font-size: 40px;
+  width: 10rem;
+  height: 10rem;
+}

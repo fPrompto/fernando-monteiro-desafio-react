@@ -22,10 +22,10 @@ function Profile() {
 
     if (username.login) {
       await setData({ username, repos });
-      return setIsLoading(false);
+      // return setIsLoading(false);
     }
     console.log('data =>', data);
-    return window.location.href = '/user-not-found';
+    // return window.location.href = '/user-not-found';
   };
 
   const getDate = (date) => {

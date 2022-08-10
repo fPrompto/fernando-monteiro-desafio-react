@@ -1,9 +1,11 @@
 import React from 'react';
 
+import '../css/Loading.css';
+
 function Loading() {
   return (
     <div>
-      <h1>Loading...</h1>
+      <div className="spinner-border loading" role="status" />
     </div>
   );
 }
