@@ -15,12 +15,6 @@ const routes = [
     element: Profile,
     exact: true,
   },
-  {
-    path: '/not-found',
-    name: 'Not Found',
-    element: NotFound,
-    exact: true,
-  },
 ];
 
 export default routes;

@@ -1,23 +1,24 @@
 .main-home {
-  height: 100vh;
-  width: 100vw;
-  padding-top: 50%;
+  /* height: 100%;
+  width: 100%; */
 }
 
 .main-div {
   margin: auto;
-  width: 500px;
+  margin-top: 37%;
+  width: 399px;
   height: 83.8px;
 }
 
 .home-title {
   margin-left: 6px;
   margin-bottom: 3px;
+  font-size: 26px;
 }
 
 .div-search {
   display: inline-block;
-  width: 400px;
+  width: 300px;
 }
 
 .input-search {
@@ -27,6 +28,6 @@
 .btn-search {
   display: inline-block;
   height: 50px;
-  width: 100px;
+  width: 99px;
   margin-top: -3.63px;
 }

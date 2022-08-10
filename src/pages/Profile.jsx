@@ -25,7 +25,7 @@ function Profile() {
       return setIsLoading(false);
     }
     console.log('data =>', data);
-    return window.location.href = '/not-found';
+    return window.location.href = '/user-not-found';
   };
 
   const getDate = (date) => {
