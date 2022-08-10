@@ -110,7 +110,7 @@
 @media (max-width: 1000px) {
   .main-profile {
     margin: auto;
-    width: 502px;
+    width: 470px;
   }
 
   .avatar-img {
@@ -118,7 +118,7 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin-top: -270px;
+    margin-top: -290px;
     margin-bottom: 0px;
     position: relative;
   }
@@ -132,7 +132,7 @@
   .profile-div {
     float: none;
     margin-right: 0px;
-    margin-top: -50px;
+    margin-top: -60px;
     width: 502px;
   }
 
@@ -140,7 +140,7 @@
     display: inline-block;
     margin-top: 45px;
     margin-left: 22px;
-    width: 280px;
+    width: 258px;
   }
 
   .repo-header {
@@ -152,7 +152,7 @@
 
     .repos-div {
       display: block;
-      width: 502px;
+      width: 470px;
       padding-top: 60px;
     }
 }
