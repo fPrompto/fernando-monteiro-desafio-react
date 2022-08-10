@@ -23,10 +23,6 @@ function Home() {
     return alert('Usuário não encontrado no github. Verifique se você digitou o nome corretamente');
   };
 
-  useEffect(() => {
-    console.log('searchBar =>', searchBar);
-  });
-
   return (
     <div className='main-home'>
       <div className='main-div'>
