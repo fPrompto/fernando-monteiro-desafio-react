@@ -1,12 +1,7 @@
-.main-home {
-  /* height: 100%;
-  width: 100%; */
-}
-
 .main-div {
   margin: auto;
   margin-top: 37%;
-  width: 399px;
+  width: 400px;
   height: 83.8px;
 }
 
@@ -28,6 +23,6 @@
 .btn-search {
   display: inline-block;
   height: 50px;
-  width: 99px;
+  width: 100px;
   margin-top: -3.63px;
 }

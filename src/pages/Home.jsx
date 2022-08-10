@@ -46,7 +46,7 @@ function Home() {
         onClick={checkUser}
         className='btn-search'
         >
-          &#x1F50E; Buscar
+          &#x1F50E;Buscar
         </Button>
       </div>
     </div>
