@@ -1,9 +1,10 @@
 .loading {
   display: block;
   margin: auto;
-  margin-top: 40vh;
+  margin-top: 45vh;
+  margin-left: 45vw;
   /* position: absolute; */
-  font-size: 40px;
-  width: 10rem;
-  height: 10rem;
+  font-size: 30px;
+  width: 20rem;
+  height: 20rem;
 }
