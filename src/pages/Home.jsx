@@ -30,21 +30,23 @@ function Home() {
   return (
     <div className='main-home'>
       <div className='main-div'>
-      <h2 className='home-title'>Buscar Repositório no github</h2>
-      <div className='div-search'>
-        <input
-          type='text'
-          name=''
-          id=''
-          className='form-control input-search'
-          onChange={(e) => setSearchBar(e.target.value)}
-          value={searchBar}
-        />
-      </div>
-      <Button
-        variant='dark'
-        onClick={checkUser}
-        className='btn-search'
+        <h2 className='home-title'>Buscar Repositório no github</h2>
+        <div className='div-search'>
+          <input
+            type='text'
+            name=''
+            id=''
+            className='form-control input-search'
+            onChange={(e) => setSearchBar(e.target.value)}
+            value={searchBar}
+            data-testid='search-input'
+          />
+        </div>
+        <Button
+          variant='dark'
+          onClick={checkUser}
+          className='btn-search'
+          data-testid='search-button'
         >
           &#x1F50E;Buscar
         </Button>

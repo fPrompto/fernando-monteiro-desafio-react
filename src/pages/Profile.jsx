@@ -56,6 +56,79 @@ function Profile() {
     return imgTag(langLow);
   };
 
+  const profile = () => (
+    <div className='left-div'>
+      <div className='profile-div'>
+        <img
+          src={data.username.avatar_url}
+          alt={`Imagem de perfil de ${data.username.name}`}
+          className='avatar-img'
+        />
+        <div className='profile-info'>
+          <h2>{data.username.name}</h2>
+          <span className='grey-font'>{data.username.bio}</span>
+
+          <Button
+            variant='dark'
+            className='follow-btn'
+            href={data.username.html_url}
+          >
+            Follow
+          </Button>
+          <span className='profile-login'>{`@${data.username.login}`}</span>
+          <span className='followers'>{data.username.followers}</span>
+          <span className='grey-font'> followers </span>
+          <span className='followers'>{data.username.following}</span>
+          <span className='grey-font'> following</span>
+          <p>{data.username.email}</p>
+          <hr className='featurette-divider feat-divider' />
+        </div>
+      </div>
+    </div>
+  );
+
+  const repositories = () => (
+    <div className='repos-div'>
+      <h6 className='repo-header'>
+        <svg
+          aria-hidden='true'
+          height='16'
+          viewBox='0 0 16 16'
+          version='1.1'
+          width='16'
+        >
+          <path
+            fillRule='evenodd'
+            d='M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z'
+          />
+        </svg>
+        {` Repositories `}
+        <div className='repo-counter'>{data.username.public_repos}</div>
+      </h6>
+      {data.repos.map((r, i) => {
+        const { day, monthShort } = getDate(r.updated_at);
+        const icon = getLangIcon(r.language);
+
+        return (
+          <div key={i} className='repo-card'>
+            <h5 className='repo-name'><a href={r.clone_url}>{r.name}</a></h5>
+            <p className='repo-description grey-font'>{r.description}</p>
+            {icon}
+            {
+              r.language ?
+                <span className='grey-font'>{` ${r.language}`}</span> :
+                <span className='grey-font'>No language</span>
+            }
+            <span className='grey-font'> • </span>
+            {/* <span>{`${r.updated_at}`}</span> */}
+            <span className='grey-font'>{` Updated on ${day} ${monthShort}`}</span>
+            <hr className='featurette-divider feat-divider repo-divider' />
+          </div>
+        );
+      })}
+    </div>
+  );
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -64,79 +137,8 @@ function Profile() {
     <div>
       <hr className='featurette-divider feat-divider header-divider' />
       <div className='main-profile'>
-        <div className='left-div'>
-          <div className='profile-div'>
-            <img
-              src={data.username.avatar_url}
-              alt={`Imagem de perfil de ${data.username.name}`}
-              className='avatar-img'
-            />
-            <div className='profile-info'>
-              <h2>{data.username.name}</h2>
-              <span className='grey-font'>{data.username.bio}</span>
-
-              <Button
-                variant='dark'
-                className='follow-btn'
-                href={data.username.html_url}
-              >
-                Follow
-              </Button>
-              <span className='profile-login'>{`@${data.username.login}`}</span>
-              {/* <p>{data.username.location}</p> */}
-              {/* <p>{data.username.company}</p> */}
-              {/* <p>{data.username.blog}</p> */}
-              {/* <p>{data.username.public_repos}</p> */}
-              {/* <p>{data.username.public_gists}</p> */}
-              <span className='followers'>{data.username.followers}</span>
-              <span className='grey-font'> followers </span>
-              <span className='followers'>{data.username.following}</span>
-              <span className='grey-font'> following</span>
-              <p>{data.username.email}</p>
-              {/* <p>{data.username.created_at}</p> */}
-              <hr className='featurette-divider feat-divider' />
-            </div>
-          </div>
-        </div>
-        <div className='repos-div'>
-          <h6 className='repo-header'>
-            <svg
-              aria-hidden='true'
-              height='16'
-              viewBox='0 0 16 16'
-              version='1.1'
-              width='16'
-            >
-              <path
-                fillRule='evenodd'
-                d='M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z'
-              />
-            </svg>
-            {` Repositories `}
-            <div className='repo-counter'>{data.username.public_repos}</div>
-          </h6>
-          {data.repos.map((r, i) => {
-            const { day, monthShort } = getDate(r.updated_at);
-            const icon = getLangIcon(r.language);
-
-            return (
-              <div key={i} className='repo-card'>
-                <h5 className='repo-name'><a href={r.clone_url}>{r.name}</a></h5>
-                <p className='repo-description grey-font'>{r.description}</p>
-                {icon}
-                {
-                  r.language ?
-                    <span className='grey-font'>{` ${r.language}`}</span> :
-                    <span className='grey-font'>No language</span>
-                }
-                <span className='grey-font'> • </span>
-                {/* <span>{`${r.updated_at}`}</span> */}
-                <span className='grey-font'>{` Updated on ${day} ${monthShort}`}</span>
-                <hr className='featurette-divider feat-divider repo-divider' />
-              </div>
-            );
-          })}
-        </div>
+        {profile()}
+        {repositories()}
       </div>
     </div>
   );
